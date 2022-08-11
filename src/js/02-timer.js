@@ -22,7 +22,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
-      Notify.failure('Please choose a date in the future');
+      Notify.warning('Please choose a date in the future');
     } else {
       buttonStartEl.toggleAttribute('disabled');
       setInterval(() => {
