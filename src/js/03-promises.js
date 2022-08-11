@@ -36,10 +36,10 @@ function makePromises(event) {
     const promise = createPromise(i + 1, currentDelay);
     promise
       .then(({ position, delay }) => {
-        console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
-        console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+        Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
     currentDelay += Number(inputStep.value);
   }
