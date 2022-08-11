@@ -1,5 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import "notiflix/dist/notiflix-3.2.5.min.css"
+import 'notiflix/dist/notiflix-3.2.5.min.css';
 
 const submitButtonEl = document.querySelector('button');
 const inputDelay = document.querySelector('input[name=delay]');
@@ -15,9 +15,8 @@ function createPromise(position, delay) {
     setTimeout(() => {
       if (shouldResolve) {
         resolve({ position: position, delay: delay });
-              } else {
+      } else {
         reject({ position: position, delay: delay });
-       
       }
     }, delay);
   });
@@ -25,7 +24,6 @@ function createPromise(position, delay) {
 }
 
 function makePromises(event) {
-
   event.preventDefault();
   if (inputDelay.value <= 0 || inputStep.value <= 0 || inputAmount.value <= 0) {
     Notify.warning('Enter a positive number');
@@ -35,7 +33,7 @@ function makePromises(event) {
   let currentDelay = Number(inputDelay.value);
 
   for (let i = 0; i < Number(inputAmount.value); i += 1) {
-    promise = createPromise(i + 1, currentDelay);
+    const promise = createPromise(i + 1, currentDelay);
     promise
       .then(({ position, delay }) => {
         console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
