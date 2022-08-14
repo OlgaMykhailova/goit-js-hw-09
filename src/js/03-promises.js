@@ -1,12 +1,12 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'notiflix/dist/notiflix-3.2.5.min.css';
 
-const submitButtonEl = document.querySelector('button');
+const formEl = document.querySelector('.form');
 const inputDelay = document.querySelector('input[name=delay]');
 const inputStep = document.querySelector('input[name=step]');
 const inputAmount = document.querySelector('input[name=amount]');
 
-submitButtonEl.addEventListener('click', makePromises);
+formEl.addEventListener('submit', makePromises);
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
